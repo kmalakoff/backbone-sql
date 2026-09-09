@@ -3,3 +3,6 @@ node_modules/
 _build/
 .DS_Store
 *.map
+.agents/
+.archive/
+.tmp/
