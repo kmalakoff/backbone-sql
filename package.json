@@ -29,7 +29,8 @@
   },
   "scripts": {
     "test": "gulp test-postgres",
-    "prepublish": "gulp build"
+    "prepublish": "gulp build",
+    "prepublishOnly": "node scripts/require-dist-tag.cjs"
   },
   "devDependencies": {
     "async": "*",
