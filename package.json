@@ -1,18 +1,7 @@
 {
   "name": "backbone-sql",
   "version": "0.6.6",
-  "description": "PostgreSQL, MySQL, and SQLite3 storage for BackboneORM",
-  "main": "./lib/index.js",
-  "license": "MIT",
-  "author": "Gwilym Humphreys (https://github.com/gwilymhumphreys)",
-  "contributors": [
-    "Kevin Malakoff (https://github.com/kmalakoff)",
-    "Ryan Carniato (https://github.com/ryansolid)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vidigami/backbone-sql.git"
-  },
+  "description": "SQLite and selected PostgreSQL persistence for BackboneORM; MySQL pending",
   "keywords": [
     "backbone",
     "orm",
@@ -24,35 +13,63 @@
     "sqlite",
     "sqlite3"
   ],
-  "engines": {
-    "node": "*"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vidigami/backbone-sql.git"
   },
+  "license": "MIT",
+  "author": "Gwilym Humphreys (https://github.com/gwilymhumphreys)",
+  "contributors": [
+    "Kevin Malakoff (https://github.com/kmalakoff)",
+    "Ryan Carniato (https://github.com/ryansolid)"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/cjs/index.js",
+  "source": "src/index.ts",
+  "types": "dist/cjs/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "gulp test-postgres",
-    "prepublish": "gulp build"
-  },
-  "devDependencies": {
-    "async": "*",
-    "backbone-rest": "0.7.x",
-    "body-parser": "1.x",
-    "chai": "*",
-    "coffee-script": "*",
-    "event-stream": "*",
-    "express": "3.x",
-    "gulp": "*",
-    "gulp-coffee": "*",
-    "gulp-spawn-mocha": "*",
-    "gulp-util": "*",
-    "mocha": "*",
-    "mysql": "2.x",
-    "pg": "3.x",
-    "sqlite3": "2.x",
-    "supertest": "0.13.x"
+    "build": "tsds build",
+    "format": "tsds format",
+    "prepublishOnly": "node scripts/require-dist-tag.cjs && tsds validate",
+    "test": "npm run build && tsds test:node --no-timeouts && ts-swc test/tooling/type-gate/run.ts",
+    "test:engines": "nvu engines tsds test:node --no-timeouts",
+    "version": "tsds version"
   },
   "dependencies": {
-    "underscore": "1.x",
-    "backbone": "1.x",
-    "backbone-orm": "0.7.x",
-    "knex": "0.6.x"
+    "backbone": "1.6.1",
+    "backbone-orm": "file:/Users/kevin/Dev/Projects/knockback-v2/backbone-orm/.worktrees/orm-contracts/.tmp/orm-contracts/accepted-oct04-one-null-save-payload/backbone-orm-0.7.14.tgz",
+    "better-sqlite3": "11.10.0",
+    "knex": "3.3.0",
+    "pg": "8.20.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "10.0.10",
+    "@types/node": "18.19.130",
+    "fs-remove-compat": "1.0.6",
+    "node-version-use": "1.9.0",
+    "ts-dev-stack": "1.22.6",
+    "tsds-build": "1.23.3",
+    "tsds-config": "1.0.5",
+    "tsds-mocha": "1.24.0",
+    "tsds-validate": "1.7.9"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "allowScripts": {
+    "@swc/core": true,
+    "better-sqlite3": true,
+    "core-js-pure": false,
+    "fsevents": false
   }
 }

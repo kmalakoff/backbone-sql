@@ -1,7 +1,10 @@
 node_modules/
+dist/
+docs/
 .idea/
 _build/
 .DS_Store
+npm-debug.log
 *.map
 .agents/
 .archive/

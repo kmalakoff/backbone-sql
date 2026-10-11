@@ -1,0 +1,16 @@
+ignores:
+  - "@types/mocha"
+  - "@types/node"
+  - "backbone-sql"
+  - "better-sqlite3"
+  - "fs-remove-compat"
+  - "node-version-use"
+  - "ts-dev-stack"
+  - "tsds-build"
+  - "tsds-config"
+  - "tsds-mocha"
+  - "tsds-validate"
+ignorePatterns:
+  - "gulpfile.coffee"
+  - "src/**/*.coffee"
+  - "test/**/*.coffee"

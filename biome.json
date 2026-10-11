@@ -1,0 +1,11 @@
+{
+  "extends": ["tsds-config/biome.json"],
+  "files": {
+    "includes": ["src/**/*.ts", "test/**/*.cjs", "test/**/*.mjs", "test/**/*.ts", "!lib", "!src/**/*.coffee", "!test/**/*.coffee", "!gulpfile.coffee", "!dist", "!node_modules", "!.git", "!.tmp"]
+  },
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
+  }
+}

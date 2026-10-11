@@ -1,0 +1,10 @@
+{
+  "extends": "../../../node_modules/tsds-config/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../.tmp/type-gate/positive",
+    "rootDir": "../../..",
+    "types": ["mocha", "node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["../../../.tmp/type-gate"]
+}
